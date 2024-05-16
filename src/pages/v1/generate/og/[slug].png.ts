@@ -30,10 +30,10 @@ export const GET: APIRoute = async ({ params, props }) => {
       <div style="display: flex; flex-direction: column; justify-content: space-between; width: 100%; filter: drop-shadow()">
         <div style="display: flex; justify-content: space-between;">
           <div style="display: flex; flex-direction: column; gap: 0.75rem;">
-            <p style="font-size: 48px;">Vtechniq theme for Astro</p>
+            <p style="font-size: 48px;">Vtechniq</p>
             <p style="font-size: 38px;">${title}</p>
           </div>
-          <img src="https://www.elian.codes/assets/img/avatar.png" width="200px" height="200px" style="border: 3px solid black; border-radius: 0.5rem;" />
+          <img src="https://www.vtechniq.com/assets/img/common/avatar.png" width="200px" height="200px" style="border: 3px solid black; border-radius: 0.5rem;" />
         </div>
         <div style="display: flex;">
           <p style="font-size: 24px;">${description}</p>

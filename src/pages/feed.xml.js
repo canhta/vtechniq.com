@@ -5,7 +5,7 @@ export async function GET(context) {
   const blog = await getCollection('blog');
   return rss({
     title: 'Vtechniq Blog',
-    description: 'Vtechniq is a theme for Astro',
+    description: 'Blog của môt chàng dev nào đó',
     stylesheet: false,
     site: context.site,
     items: blog.map((post) => ({
@@ -14,7 +14,6 @@ export async function GET(context) {
       description: post.data.description,
       link: `/blog/${post.slug}/`,
     })),
-    customData: '<language>en-us</language>',
-    canonicalUrl: 'https://vtechniq.com',
+    customData: '<language>vi-vn</language>',
   });
 }
