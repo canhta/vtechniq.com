@@ -1,0 +1,56 @@
+---
+import { Button, Card, Pill } from '@eliancodes/brutal-ui';
+import { Image } from 'astro:assets';
+import headshot from '../../assets/avatar.png';
+
+const doing = [
+  { name: 'NextJs', url: 'https://nextjs.org/' },
+  { name: 'NestJs', url: 'https://nestjs.com/' },
+  { name: 'FastAPI', url: 'https://fastapi.tiangolo.com/' },
+  { name: "Project Manager", url: 'https://www.projectmanagement.com/' },
+];
+---
+
+<section id='about' class='grid md:grid-cols-8 gap-8 mt-4'>
+  <h2 class='hidden'>About me</h2>
+  <div class='flex flex-col md:col-span-6 gap-8'>
+    <Card>
+      <p class='mt-4 outfit text-2xl md:text-5xl lg:text-7xl'>
+        Technical Lead <a
+          class='underline underline-blue'
+          target='_blank'
+          href='https://seta-international.com/'>@Seta</a
+        >
+      </p>
+      <p class='sanchez mt-4 mb-8 text-lg md:text-xl lg:text-3xl'>
+        Located in Hanoi, Vietnam
+      </p>
+      <Button href='/projects/'>See what I do &rarr;</Button>
+    </Card>
+    <Card>
+      <h2 class='text-2xl md:text-4xl lg:text-6xl mb-8 dm-serif'>
+        What's keeping me busy?
+      </h2>
+      <ul class='flex gap-4 flex-wrap'>
+        {
+          doing.map((item) => (
+            <li class='sanchez'>
+              <Pill>
+                <a href={item.url} target='_blank' title={`Go to ${item.name}`}>
+                  {item.name}
+                </a>
+              </Pill>
+            </li>
+          ))
+        }
+      </ul>
+    </Card>
+  </div>
+  <Image
+    class='object-cover h-full w-full rounded-lg md:col-span-2 border-3 border-black card-shadow'
+    src={headshot}
+    alt='Canh Ta'
+    width={headshot.width}
+    height={headshot.height}
+  />
+</section>

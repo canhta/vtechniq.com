@@ -1,0 +1,21 @@
+---
+import Layout from '@layouts/Default.astro';
+import RecentBlogPosts from '@components/generic/RecentBlogPosts.astro';
+import MobileSocials from '@components/home/MobileSocials.astro';
+import AboutMe from '@components/home/AboutMe.astro';
+import Description from '@components/home/Description.astro';
+---
+
+<Layout
+  title='Home'
+  pageTitle='Vtechniq | Home'
+  description='The Vietnamese developer blog.'
+>
+  <main class='bg-pink p-6'>
+    <MobileSocials />
+    <MobileSocials />
+    <AboutMe />
+    <Description />
+    <RecentBlogPosts />
+  </main>
+</Layout>

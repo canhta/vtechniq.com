@@ -1,0 +1,37 @@
+---
+import SummaryCard from "@components/generic/SummaryCard.astro";
+import { Button } from "@eliancodes/brutal-ui";
+import type { CollectionEntry } from "astro:content";
+
+export interface Props {
+	project: CollectionEntry<"projects">;
+}
+
+const { project } = Astro.props;
+const { data } = project;
+---
+
+<SummaryCard
+	title={data.title}
+	imgSrc={data.img}
+	imgAlt={data.title}
+	description={data.abstract}
+>
+	<p class="mt-2">
+		<a
+			href={data.link}
+			title={data.title}
+			class="hover:text-yellow transition-color duration-150 ease-in-out"
+			>{data.name}</a
+		> - {
+			data.date.toLocaleDateString("en-BE", {
+				year: "numeric",
+				month: "long",
+				day: "numeric",
+			})
+		}
+	</p>
+	<div class="md:flex justify-end gap-4 mt-4 hidden">
+		<Button target="_blank" href={data.link}>See event</Button>
+	</div>
+</SummaryCard>

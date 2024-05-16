@@ -1,0 +1,27 @@
+---
+import ProjectCard from '@components/projects/ProjectCard.astro';
+import Layout from '@layouts/Default.astro';
+import { getCollection } from 'astro:content';
+
+const projects = await getCollection('projects').then((projects) =>
+  projects.sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+);
+---
+
+<Layout
+  title='Events'
+  pageTitle='Elian Codes | Events'
+  description='See upcoming and past events Elian took part in as a speaker (mostly Astro & JavaScript).'
+>
+  <main class='bg-yellow p-6'>
+    <ul class='grid md:grid-cols-3 2xl:grid-cols-4 gap-8'>
+      {
+        projects.map((project) => (
+          <li>
+            <ProjectCard project={project} />
+          </li>
+        ))
+      }
+    </ul>
+  </main>
+</Layout>
