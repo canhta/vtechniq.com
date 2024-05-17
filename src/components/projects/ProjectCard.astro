@@ -1,37 +1,50 @@
 ---
-import SummaryCard from "@components/generic/SummaryCard.astro";
-import { Button } from "@eliancodes/brutal-ui";
-import type { CollectionEntry } from "astro:content";
+import SummaryCard from '@components/generic/SummaryCard.astro';
+import { Button } from '@eliancodes/brutal-ui';
+import type { CollectionEntry } from 'astro:content';
+import { getGitHubStars } from '../../utils/github';
 
 export interface Props {
-	project: CollectionEntry<"projects">;
+  project: CollectionEntry<'projects'>;
 }
 
 const { project } = Astro.props;
 const { data } = project;
+const starCount = data.type === 'github' ? await getGitHubStars(data.link) : 0;
+
+const getIcon = (type: string) => {
+  switch (type) {
+    case 'github':
+      return 'i-uil-github';
+    case 'website':
+      return 'i-uil-globe';
+
+    default:
+      return '';
+  }
+};
 ---
 
 <SummaryCard
-	title={data.title}
-	imgSrc={data.img}
-	imgAlt={data.title}
-	description={data.abstract}
+  icon={getIcon(data.type)}
+  title={data.title}
+  imgSrc={data.img}
+  imgAlt={data.title}
+  description={data.description}
 >
-	<p class="mt-2">
-		<a
-			href={data.link}
-			title={data.title}
-			class="hover:text-yellow transition-color duration-150 ease-in-out"
-			>{data.name}</a
-		> - {
-			data.date.toLocaleDateString("vi-VN", {
-				year: "numeric",
-				month: "long",
-				day: "numeric",
-			})
-		}
-	</p>
-	<div class="md:flex justify-end gap-4 mt-4 hidden">
-		<Button target="_blank" href={data.link}>See event</Button>
-	</div>
+  <div class='md:flex justify-between items-center gap-4 mt-4 hidden'>
+    {
+      data.type === 'github' && starCount > 0 ? (
+        <div class='flex items-center gap-2'>
+          <div class:list={'i-uil-star p-3'} />
+          <p>{starCount}</p>
+        </div>
+      ) : (
+        <div />
+      )
+    }
+    <Button target='_blank' href={data.link}>
+      {data.type === 'github' ? 'View repo' : 'Visit website'}
+    </Button>
+  </div>
 </SummaryCard>
