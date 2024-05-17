@@ -1,9 +1,13 @@
 ---
+import { Pill } from '@eliancodes/brutal-ui';
+import GiscusComments from './GiscusComments.astro';
+
 interface Props {
   content: any;
+  tags: string[];
 }
 
-const { content } = Astro.props;
+const { content, tags } = Astro.props;
 ---
 
 <article class='prose-slate w-sm md:w-prose md:prose poppins'>
@@ -12,6 +16,18 @@ const { content } = Astro.props;
     Published on {content.pubDate} by {content.author}
   </p>
   <slot />
-  <p class='text-slate'>Written by {content.author}</p>
+  <div class='flex gap-4 mt-10'>
+    {
+      tags.map((tag) => {
+        return (
+          <a class='sanchez' href={`/blog/tags/${tag.toLowerCase()}/`}>
+            <Pill>{tag}</Pill>
+          </a>
+        );
+      })
+    }
+  </div>
+
+  <GiscusComments />
   <a href='/blog/' title='Back to blog'>&larr; Back to blog</a>
 </article>
