@@ -6,13 +6,14 @@ import { Button } from '@eliancodes/brutal-ui';
 
 interface Props {
   count?: number;
+  filteredSlug?: string;
 }
 
 const { count } = Astro.props;
 
-const posts = await getCollection('blog').then((posts) =>
-  posts.reverse().slice(0, count ?? 3)
-);
+const posts = await getCollection('blog', ({ slug }) => {
+  return !Astro.props.filteredSlug || !slug.includes(Astro.props.filteredSlug);
+}).then((posts) => posts.reverse().slice(0, count ?? 3));
 ---
 
 <section class='mt-8'>
