@@ -1,4 +1,4 @@
-# Vtechniq - The Vietnamese developer blog
+# Vtechniq - Cà Phê & Code: A Vietnamese Developer Brew
 
 ### Commands
 
