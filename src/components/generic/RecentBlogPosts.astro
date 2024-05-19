@@ -6,21 +6,33 @@ import { Button } from '@eliancodes/brutal-ui';
 
 interface Props {
   count?: number;
-  filteredSlug?: string;
+  currentPost?: {
+    slug: string;
+    tags: string[];
+  };
 }
 
 const { count } = Astro.props;
 
-const posts = await getCollection('blog', ({ slug }) => {
-  return !Astro.props.filteredSlug || !slug.includes(Astro.props.filteredSlug);
+const posts = await getCollection('blog', ({ slug, data: { tags } }) => {
+  if (!Astro.props.currentPost) {
+    return true;
+  }
+
+  const isDiff = !slug.includes(Astro.props.currentPost.slug);
+  const sameTag = Astro.props.currentPost.tags.some((tag) => {
+    return tags.includes(tag);
+  });
+
+  return isDiff && sameTag;
 }).then((posts) => posts.reverse().slice(0, count ?? 3));
 ---
 
 <section class='mt-8'>
-  <Card color='cyan'> 
+  <Card color='cyan'>
     <div class='flex justify-between items-start'>
       <h2 class='text-2xl md:text-4xl lg:text-6xl mb-8 dm-serif'>
-        Recent Blogposts
+        {Astro.props.currentPost ? 'Related Blogposts' : 'Recent Blogposts'}
       </h2>
       <div class='hidden md:block'>
         <Button href='/blog/'>Go to blog &rarr;</Button>

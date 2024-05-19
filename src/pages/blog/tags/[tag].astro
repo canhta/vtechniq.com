@@ -42,11 +42,15 @@ const { tag, blogposts } = Astro.props;
 <Layout
   title={`Blog: ${tag}`}
   description={`Vtechniq Blog | All posts tagged with ${tag}`}
-  pageTitle={`Vtechniq Blog | Blogposts tagged with ${tag}`}
+  pageTitle={`Vtechniq Blog | Blogposts tagged with ${tag}`}
 >
   <main class='p-6 bg-purple grid gap-4'>
-    <div>
-      <Button href='/blog/'>&larr; Back to blog</Button>
+    <div class='flex justify-between items-center'>
+      <h1 class='text-3xl md:text-5xl dm-serif'>
+        Blogposts tagged with
+        <span class='underline'> {`#${tag}`}</span>
+      </h1>
+      <Button href='/blog/tags'>&larr; Back to all tags</Button>
     </div>
     <BlogList posts={blogposts} />
   </main>

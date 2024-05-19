@@ -10,10 +10,13 @@ const posts = await getCollection('blog').then((collection) =>
 
 <Layout
   title='Blog'
-  description='Vtechniq Blog | On this page you can find a collection of blogposts'
+  description='Vtechniq Blog | On this page you can find a collection of blogposts'
   pageTitle='Vtechniq Blog'
 >
   <main class='bg-green p-6'>
+    <div class='flex justify-between items-center pb-6'>
+      <h1 class='text-3xl md:text-5xl dm-serif'>Blogposts</h1>
+    </div>
     <BlogList posts={posts} />
   </main>
 </Layout>
