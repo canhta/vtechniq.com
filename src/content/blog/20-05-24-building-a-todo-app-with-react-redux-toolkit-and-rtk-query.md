@@ -218,6 +218,16 @@ const App: React.FC = () => {
 export default App;
 ```
 
+### Codesandbox
+
+<iframe
+  src="https://codesandbox.io/p/devbox/todo-app-7lcwdm?embed=1&file=%2Fsrc%2Ffeatures%2Ftodos%2FtodosApi.ts&showConsole=true"
+  style="width:100%; height: 500px; border:0; border-radius: 4px; overflow:hidden;"
+  title="todo-app"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
+
 ### Conclusion
 
 You've now created a basic ToDo app using React, Redux Toolkit, and RTK Query, fully typed with TypeScript. This setup not only simplifies state management but also provides a more declarative approach to data fetching with strong type safety. You can further enhance this app by adding features like editing todos, user authentication, and more complex state management as needed.
