@@ -2,10 +2,36 @@
 import { getCollection } from 'astro:content';
 import Layout from '@layouts/Default.astro';
 import BlogList from '@components/blog/BlogList.astro';
+import { Button } from '@eliancodes/brutal-ui';
 
-const posts = await getCollection('blog').then((collection) =>
-  collection.reverse()
-);
+const { posts, tagCount } = await getCollection('blog').then((collection) => {
+  // List of tags with post count
+  const tagCount: Record<string, number> = {};
+  const posts = collection.reverse();
+
+  posts.forEach((post) => {
+    post.data.tags.forEach((tag) => {
+      if (!tagCount[tag]) {
+        tagCount[tag] = 0;
+      }
+      tagCount[tag]++;
+    });
+  });
+
+  return {
+    posts,
+    tagCount,
+  };
+});
+
+const tagLinks = Object.keys(tagCount)
+  .sort((a, b) => {
+    return tagCount[b] - tagCount[a];
+  })
+  .map((tag) => ({
+    label: `#${tag} (${tagCount[tag]})`,
+    href: `/blog/tags/${tag.toLocaleLowerCase()}`,
+  }));
 ---
 
 <Layout
@@ -17,6 +43,18 @@ const posts = await getCollection('blog').then((collection) =>
     <div class='flex justify-between items-center pb-6'>
       <h1 class='text-3xl md:text-5xl dm-serif'>Blogposts</h1>
     </div>
+    <div class='flex justify-between items-center pb-6'>
+      <ul class='flex flex-wrap gap-4'>
+        {
+          tagLinks.map((tagLink) => (
+            <li>
+              <Button href={tagLink.href}>{tagLink.label}</Button>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
     <BlogList posts={posts} />
   </main>
 </Layout>
