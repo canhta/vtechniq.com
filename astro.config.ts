@@ -1,8 +1,13 @@
+import vercel from '@astrojs/vercel/serverless';
 import { defineConfig, squooshImageService } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 import UnoCSS from 'unocss/astro';
 
 export default defineConfig({
+  output: 'server',
+  adapter: vercel({
+    webAnalytics: { enabled: true },
+  }),
   image: {
     service: squooshImageService(),
   },
