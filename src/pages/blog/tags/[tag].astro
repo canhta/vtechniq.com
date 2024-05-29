@@ -5,6 +5,8 @@ import Layout from '@layouts/Default.astro';
 import BlogList from '@components/blog/BlogList.astro';
 import { Button } from '@eliancodes/brutal-ui';
 
+export const prerender = true;
+
 export async function getStaticPaths() {
   const allPosts = await getCollection('blog').then((collection) =>
     collection.reverse()
