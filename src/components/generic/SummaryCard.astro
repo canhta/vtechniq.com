@@ -16,7 +16,7 @@ const { title, icon, imgAlt, imgSrc, description } = Astro.props;
 <Card color='white'>
   <div class='flex items-center gap-2'>
     {icon && <div class:list={[icon, 'p-3']} />}
-    <h3 class='poppins text-lg md:text-xl'>{title}</h3>
+    <h3 class='open-sans text-lg md:text-xl'>{title}</h3>
   </div>
   <div class='rounded-lg border-3 border-black my-4 h-56'>
     <Image
@@ -27,6 +27,6 @@ const { title, icon, imgAlt, imgSrc, description } = Astro.props;
       class='rounded h-full w-full object-cover'
     />
   </div>
-  <p class='poppins'>{description}</p>
+  <p class='open-sans'>{description}</p>
   <slot />
 </Card>

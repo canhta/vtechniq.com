@@ -7,12 +7,12 @@ tags:
   - Project Manager
   - Scrum
 imgUrl: '../../assets/posts/agile_estimation.png'
-description: 'Trong thế giới phát triển phần mềm Agile, việc ước lượng thời gian hoàn thành một công việc (User Story) thường gặp phải những trở ngại đáng kể...'
+description: 'Trong Agile, việc ước lượng thời gian hoàn thành một công việc (User Story) thường gặp phải những trở ngại đáng kể...'
 layout: '../../layouts/BlogPost.astro'
 ---
 
 # Story Point
-Trong thế giới phát triển phần mềm Agile, việc ước lượng thời gian hoàn thành một công việc (User Story) thường gặp phải những trở ngại đáng kể. Story Point đã nổi lên như một giải pháp đột phá, mang đến một cách tiếp cận mới mẻ và tối ưu hơn cho việc ước lượng trong môi trường Agile.
+Xin chào không ai cả! Trong Agile, việc ước lượng thời gian hoàn thành một công việc (User Story) thường gặp phải những trở ngại đáng kể. Story Point đã nổi lên như một giải pháp đột phá, mang đến một cách tiếp cận mới mẻ và tối ưu hơn cho việc ước lượng trong môi trường Agile.
 
 ### Story Point Là Gì?
 
@@ -37,11 +37,28 @@ Không giống như ước lượng thời gian, Story Point tập trung vào vi
 
 Sử dụng Story Point mang lại nhiều lợi ích quan trọng cho quá trình quản lý dự án Agile:
 
-- Tính tương đối: Cho phép so sánh trực tiếp độ khó của các User Story một cách dễ dàng và trực quan. Ví dụ, nếu User Story A được đánh giá là 5 Story Point và User Story B được đánh giá là 8 Story Point, ta có thể kết luận rằng User Story B phức tạp và tốn nhiều công sức hơn.
-- Thúc đẩy sự đồng thuận: Khuyến khích các thành viên trong nhóm thảo luận, chia sẻ quan điểm, và thống nhất ý kiến về độ lớn của từng User Story, từ đó tăng cường sự hợp tác và hiểu biết lẫn nhau.
-- Bao quát nhiều yếu tố: Story Point không chỉ phản ánh khối lượng công việc mà còn xem xét đến độ phức tạp, rủi ro, và sự không chắc chắn, giúp đưa ra quyết định toàn diện và chính xác hơn về thứ tự ưu tiên và phân bổ nguồn lực. Ví dụ, một User Story có khối lượng công việc ít nhưng độ phức tạp cao và rủi ro lớn có thể được đánh giá cao hơn một User Story có khối lượng công việc lớn nhưng đơn giản và ít rủi ro.
-- Tích lũy dữ liệu lịch sử: Thông qua việc theo dõi tốc độ hoàn thành công việc (velocity) của nhóm theo từng Sprint, Story Point cho phép cải thiện độ chính xác của ước lượng trong tương lai. Ví dụ, nếu trong Sprint trước, nhóm hoàn thành được tổng cộng 20 Story Point, ta có thể dự đoán rằng trong Sprint tiếp theo, nhóm cũng sẽ hoàn thành được khoảng 20 Story Point.
-- Tính linh hoạt: Story Point dễ dàng điều chỉnh và thích ứng với những thay đổi trong dự án, giúp nhóm phát triển phản ứng nhanh chóng và linh hoạt với các tình huống phát sinh. Ví dụ, nếu một User Story được đánh giá là 5 Story Point nhưng sau đó phát hiện ra có thêm yêu cầu mới, ta có thể dễ dàng điều chỉnh lại Story Point của User Story đó lên 8.
+#### Tính tương đối
+Cho phép so sánh trực tiếp độ khó của các User Story một cách dễ dàng và trực quan. 
+
+VD: Nếu User Story A được đánh giá là 5 Story Point và User Story B được đánh giá là 8 Story Point, ta có thể kết luận rằng User Story B phức tạp và tốn nhiều công sức hơn.
+
+#### Thúc đẩy sự đồng thuận
+Khuyến khích các thành viên trong nhóm thảo luận, chia sẻ quan điểm, và thống nhất ý kiến về độ lớn của từng User Story, từ đó tăng cường sự hợp tác và hiểu biết lẫn nhau.
+
+#### Bao quát nhiều yếu tố
+Story Point không chỉ phản ánh khối lượng công việc mà còn xem xét đến độ phức tạp, rủi ro, và sự không chắc chắn, giúp đưa ra quyết định toàn diện và chính xác hơn về thứ tự ưu tiên và phân bổ nguồn lực.
+
+VD: Một User Story có khối lượng công việc ít nhưng độ phức tạp cao và rủi ro lớn có thể được đánh giá cao hơn một User Story có khối lượng công việc lớn nhưng đơn giản và ít rủi ro.
+
+#### Tích lũy dữ liệu lịch sử
+Thông qua việc theo dõi tốc độ hoàn thành công việc (velocity) của nhóm theo từng Sprint, Story Point cho phép cải thiện độ chính xác của ước lượng trong tương lai.
+
+VD: Nếu trong Sprint trước, nhóm hoàn thành được tổng cộng 20 Story Point, ta có thể dự đoán rằng trong Sprint tiếp theo, nhóm cũng sẽ hoàn thành được khoảng 20 Story Point.
+
+#### Tính linh hoạt
+Story Point dễ dàng điều chỉnh và thích ứng với những thay đổi trong dự án, giúp nhóm phát triển phản ứng nhanh chóng và linh hoạt với các tình huống phát sinh.
+
+VD: Nếu một User Story được đánh giá là 5 Story Point nhưng sau đó phát hiện ra có thêm yêu cầu mới, ta có thể dễ dàng điều chỉnh lại Story Point của User Story đó lên 8.
 
 ### Fibonacci và Story Point
 
